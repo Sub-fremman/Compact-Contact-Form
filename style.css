@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(228, 177, 240, 1) 35%,
+    rgba(228, 177, 240, 1) 100%
+  );
+}
+
+.container {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 0.375rem;
+  padding: 1.875rem;
+  margin: 0 0.9375rem;
+  background-color: #ffe1ff;
+  box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.1);
+}
+
+.container header {
+  position: relative;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #424242;
+}
+
+.container header::before {
+  content: "";
+  position: absolute;
+  left: 4rem;
+  bottom: 0.0625rem;
+  height: 0.1875rem;
+  width: 3.75rem;
+  border-radius: 0.625rem;
+  background-color: #433878;
+}
+
+.container header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.0625rem;
+  height: 0.1875rem;
+  width: 1.4375rem;
+  border-radius: 0.625rem;
+  background-color: #433878;
+}
+
+.container form {
+  position: relative;
+  margin-top: 1rem;
+  min-height: 30.625rem;
+  background-color: #ffe1ff;
+  overflow: hidden;
+}
+
+.container form .form {
+  position: absolute;
+  background-color: #ffe1ff;
+  transition: 0.3s ease;
+}
+
+/* javascript addons */
+.container form .form.second {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(100%);
+}
+
+form.secActive .form.second {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+form.secActive .form.first {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+}
+
+/* javascript addons ends */
+
+.container form .title {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.375rem 0;
+  color: #433878;
+}
+
+.container form .fields {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+form .fields .input-field {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% / 3 - 15px);
+  margin: 0.25rem 0;
+}
+
+.input-field label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #2e2e2e;
+}
+
+.input-field input {
+  outline: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #424242;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid #e4b1f0;
+  padding: 0 0.9375rem;
+  height: 2.625rem;
+  margin: 0.5rem 0;
+}
+
+.input-field input:is(:focus, :valid) {
+  box-shadow: 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.13);
+}
+
+.input-field input[type="date"] {
+  color: #424242;
+}
+
+.input-field input[type="date"]:valid {
+  color: #424242;
+}
+
+.container form button,
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.8125rem;
+  max-width: 12.5rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #433878;
+  margin: 1.5625rem 0;
+  border-radius: 0.3125rem;
+  transition: all 0.3s linear;
+}
+
+.container form button,
+.container form .backBtn {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+form button:hover,
+form .backBtn:hover {
+  background-color: #a64d79;
+  cursor: pointer;
+}
+
+form button i {
+  margin: 0 0.375rem;
+}
+
+form button i,
+form .backBtn i {
+  margin: 0 0.375rem;
+}
+
+form .backBtn i {
+  transform: rotate(180deg);
+}
+
+form .buttons {
+  display: flex;
+  align-items: center;
+}
+
+form .buttons button,
+.backBtn {
+  margin-right: 0.875rem;
+}
+
+/* media query for smaller screens */
+
+@media (max-width: 750px) {
+  .container form {
+    overflow-y: scroll;
+  }
+
+  .container form::webkit-scrollbar {
+    display: none;
+  }
+
+  form .fields .input-field {
+    width: calc(100% / 2 - 15px);
+  }
+}
+
+@media (max-width: 500px) {
+  form .fields .input-field {
+    width: 100%;
+  }
+}
